@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native"
 import * as Font from "expo-font"
 import { useState } from "react"
 import AppLoading from "expo-app-loading"
-import Main from "./components/Main"
+import MainStack from "./navigate"
 
 const fonts = () => {
   Font.loadAsync({
@@ -19,7 +19,7 @@ export default function App() {
   const [font, setFont] = useState(false)
 
   if (font) {
-    return <Main />
+    return <MainStack />
   } else {
     // с пом-ю startAsync мы хотим сделать некую асинхроннную подгрузку
     // onFinish - сработает в момент когда подгрузка завершится
