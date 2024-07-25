@@ -19,7 +19,11 @@ export default function App() {
   const [font, setFont] = useState(false)
 
   if (font) {
-    return <View style={gStyle.main}></View>
+    return (
+      <View style={gStyle.main}>
+        <Text style={gStyle.title}>Hello</Text>
+      </View>
+    )
   } else {
     // с пом-ю startAsync мы хотим сделать некую асинхроннную подгрузку
     // onFinish - сработает в момент когда подгрузка завершится

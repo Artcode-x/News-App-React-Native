@@ -8,6 +8,6 @@ export const gStyle = StyleSheet.create({
   title: {
     fontSize: 20,
     color: "#333",
-    // fontFamily: ''
+    fontFamily: "mt-italic",
   },
 })
