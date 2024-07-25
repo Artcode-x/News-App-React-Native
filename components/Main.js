@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Button, FlatList, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { gStyle } from "../styles/styles"
 import { AntDesign } from "@expo/vector-icons"
+import Form from "./Form"
 
 export default function Main({ navigation }) {
   const [news, setNews] = useState([
@@ -32,6 +33,19 @@ export default function Main({ navigation }) {
 
   const [modalWindow, setModalWindow] = useState(false)
 
+  //   параметр article - та статья которую будем добавлять
+  const addArticle = (article) => {
+    // будем добавлять к статье определенный, случайный ключ и далее добавлять эту статью к текущему массиву
+    article.key = Math.random().toString()
+    // list - текущий список
+    setNews((list) => {
+      console.log(list)
+      return [article, ...list]
+    })
+    // закрываем модалку после добавления статьи
+    setModalWindow(false)
+  }
+
   return (
     <View style={gStyle.main}>
       {/* visible - атрибут, который указывает, будет ли видно окно по умолчанию (false/true)*/}
@@ -46,6 +60,8 @@ export default function Main({ navigation }) {
             onPress={() => setModalWindow(false)}
           />
           <Text style={styles.title}>Форма добавления статей</Text>
+          {/* передаем нашу ф-ию в соответствующий компонент */}
+          <Form addArticle={addArticle} setModalWindow={setModalWindow} />
         </View>
       </Modal>
       <AntDesign
