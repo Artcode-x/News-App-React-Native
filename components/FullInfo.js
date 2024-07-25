@@ -3,9 +3,6 @@ import { Button, Image, StyleSheet, Text, View } from "react-native"
 import { gStyle } from "../styles/styles"
 
 export default function FullInfo({ route }) {
-  // route - передается точно также, как и navigation. Передается в автоматическом режиме через Stack navigation
-  // через route можем получить все данные, которые передаются на эту страницу
-
   return (
     <View style={[gStyle.main, styles.header]}>
       <Image
