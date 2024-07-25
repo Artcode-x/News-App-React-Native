@@ -2,7 +2,7 @@ import React from "react"
 import { Button, StyleSheet, Text, View } from "react-native"
 import { gStyle } from "../styles/styles"
 
-export default function Contacts({ navigation }) {
+export default function FullInfo({ navigation }) {
   //   const loadScene = () => {
   //     navigation.goBack()
   //   }
