@@ -1,6 +1,7 @@
 import React, { useState } from "react"
-import { Button, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Button, FlatList, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { gStyle } from "../styles/styles"
+import { AntDesign } from "@expo/vector-icons"
 
 export default function Main({ navigation }) {
   const [news, setNews] = useState([
@@ -29,8 +30,31 @@ export default function Main({ navigation }) {
     },
   ])
 
+  const [modalWindow, setModalWindow] = useState(false)
+
   return (
     <View style={gStyle.main}>
+      {/* visible - атрибут, который указывает, будет ли видно окно по умолчанию (false/true)*/}
+      {/* исп-м зн-ие из state для дальнейшего переключения*/}
+      <Modal visible={modalWindow}>
+        <View style={gStyle.main}>
+          <AntDesign
+            name="closecircle"
+            size={24}
+            color="black"
+            style={styles.iconClose}
+            onPress={() => setModalWindow(false)}
+          />
+          <Text style={styles.title}>Форма добавления статей</Text>
+        </View>
+      </Modal>
+      <AntDesign
+        name="pluscircle"
+        size={24}
+        color="orange"
+        style={styles.iconAdd}
+        onPress={() => setModalWindow(true)}
+      />
       {/* Применяем доп стили к заголовку стр-цы */}
       <Text style={[gStyle.title, styles.header]}>Главная страница</Text>
       {/* <Button title="Открыть страницу" onPress={loadScene} /> */}
@@ -81,5 +105,13 @@ const styles = StyleSheet.create({
   image: {
     height: 200,
     width: "100%",
+  },
+  iconAdd: {
+    textAlign: "center",
+    marginBottom: 15,
+  },
+  iconClose: {
+    textAlign: "center",
+    marginBottom: 15,
   },
 })
