@@ -11,5 +11,6 @@ export const gStyle = StyleSheet.create({
     color: "#333",
     fontFamily: "mt-italic",
     textAlign: "center",
+    marginTop: 5,
   },
 })

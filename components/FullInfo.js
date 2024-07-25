@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, StyleSheet, Text, View } from "react-native"
+import { Button, Image, StyleSheet, Text, View } from "react-native"
 import { gStyle } from "../styles/styles"
 
 export default function FullInfo({ route }) {
@@ -7,11 +7,30 @@ export default function FullInfo({ route }) {
   // через route можем получить все данные, которые передаются на эту страницу
 
   return (
-    <View style={gStyle.main}>
+    <View style={[gStyle.main, styles.header]}>
+      <Image
+        source={{
+          height: 200,
+          width: "100%",
+          uri: route.params.img,
+        }}
+      />
       <Text style={gStyle.title}>{route.params.name}</Text>
-      <Text>{route.params.full}</Text>
+      <Text style={styles.full}>{route.params.full}</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  full: {
+    fontFamily: "mt-italic",
+    fontSize: 16,
+    textAlign: "center",
+    marginTop: 20,
+    color: "#f55151",
+  },
+  header: {
+    fontSize: 25,
+    marginTop: 25,
+  },
+})
