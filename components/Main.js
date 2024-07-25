@@ -31,14 +31,15 @@ export default function Main({ navigation }) {
 
   return (
     <View style={gStyle.main}>
-      <Text style={gStyle.title}>Главная страница</Text>
+      {/* Применяем доп стили к заголовку стр-цы */}
+      <Text style={[gStyle.title, styles.header]}>Главная страница</Text>
       {/* <Button title="Открыть страницу" onPress={loadScene} /> */}
       {/* в renderItem - перебираем каждый эл-т как параметр item, и создаем ф-ию для обработки всего этого */}
       <FlatList
         data={news}
         renderItem={({ item }) => (
           // item  - передаем ту статью на которую нажали
-          <TouchableOpacity onPress={() => navigation.navigate("FullInfo", item)}>
+          <TouchableOpacity style={styles.item} onPress={() => navigation.navigate("FullInfo", item)}>
             <Image
               source={{
                 height: 200,
@@ -46,8 +47,8 @@ export default function Main({ navigation }) {
                 width: "100%",
               }}
             />
-            <Text>{item.name}</Text>
-            <Text>{item.anons}</Text>
+            <Text style={styles.title}>{item.name}</Text>
+            <Text style={styles.anons}>{item.anons}</Text>
           </TouchableOpacity>
         )}
       />
@@ -55,4 +56,27 @@ export default function Main({ navigation }) {
   )
 }
 
-// const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  header: {
+    marginBottom: 30,
+  },
+  item: {
+    width: "100%",
+    marginBottom: 30,
+  },
+  title: {
+    // тот шрифт , который был подключен ранее
+    fontFamily: "mt-Variable",
+    fontSize: 22,
+    textAlign: "center",
+    marginTop: 20,
+    color: "#474747",
+  },
+  anons: {
+    fontFamily: "mt-italic",
+    fontSize: 16,
+    textAlign: "center",
+    marginTop: 5,
+    color: "#474747",
+  },
+})
