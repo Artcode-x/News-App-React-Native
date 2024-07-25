@@ -10,7 +10,16 @@ export default function Navigate() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Main} options={{ title: "Главная" }} />
+        {/* с пом-ю headerStyle - можем уст-ть разл-ие css св-ва . headerTitleStyle - указываем стили применимые к текстовым надписям (Главная)*/}
+        <Stack.Screen
+          name="Main"
+          component={Main}
+          options={{
+            title: "Главная",
+            headerStyle: { backgroundColor: "#eb5d3d", height: 100 },
+            headerTitleStyle: { fontWeight: "light" },
+          }}
+        />
         <Stack.Screen name="FullInfo" component={FullInfo} options={{ title: "Статья" }} />
       </Stack.Navigator>
     </NavigationContainer>
