@@ -8,11 +8,12 @@ export default function Main({ navigation }) {
       name: "Google",
       anons: "Google!!!",
       full: "Google is cool",
+      key: "1",
     },
 
-    { name: "Apple", anons: "Apple!!!", full: "Apple is cool" },
+    { name: "Apple", anons: "Apple!!!", full: "Apple is cool", key: "2" },
 
-    { name: "Facebook", Facebook: "Google!!!", full: "Google is cool" },
+    { name: "Facebook", Facebook: "Google!!!", full: "Google is cool", key: "3" },
   ])
 
   return (
