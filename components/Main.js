@@ -41,10 +41,9 @@ export default function Main({ navigation }) {
           // item  - передаем ту статью на которую нажали
           <TouchableOpacity style={styles.item} onPress={() => navigation.navigate("FullInfo", item)}>
             <Image
+              style={styles.image}
               source={{
-                height: 200,
                 uri: item.img,
-                width: "100%",
               }}
             />
             <Text style={styles.title}>{item.name}</Text>
@@ -78,5 +77,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 5,
     color: "#474747",
+  },
+  image: {
+    height: 200,
+    width: "100%",
   },
 })
