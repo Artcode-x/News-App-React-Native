@@ -12,7 +12,7 @@ export default function Main({ navigation }) {
 
     { name: "Apple", anons: "Apple!!!", full: "Apple is cool" },
 
-    { name: "Facebook", Facebook: "Google!!!", Facebook: "Google is cool" },
+    { name: "Facebook", Facebook: "Google!!!", full: "Google is cool" },
   ])
 
   return (
