@@ -14,7 +14,8 @@ export default function Form({ addArticle, setModalWindow }) {
   const selectImage = async (props) => {
     const result = await ImagePicker.launchImageLibraryAsync({ mediaType: "mixed", selectionLimit: 1 })
 
-    if (result.assets) {
+    // Проверка наличия изображения: В данном условии мы убедились, что массив assets существует и содержит хотя бы одно изображение.
+    if (result.assets && result.assets.length > 0) {
       console.log(result.assets)
 
       const { uri } = result.assets[0]
@@ -27,11 +28,6 @@ export default function Form({ addArticle, setModalWindow }) {
       // сохраняем фото что были и добавляем новые
       // setPhotos((prevState) => [...prevState, { uri: result.assets[0]?.uri }])
       //  setPhotos([{ uri: result.assets[0]?.uri }])
-
-      if (photos.uri) {
-        console.log(photos.uri)
-        //  addArticle(photos.uri)
-      }
     }
   }
 
@@ -75,6 +71,7 @@ export default function Form({ addArticle, setModalWindow }) {
               value={props.values.img}
               placeholder="Ссылка на выбранный файл"
               onChangeText={props.handleChange("img")}
+              editable={false} // Делаем поле не редактируемым
             />
             <Button title="Выбрать файл" onPress={() => selectImage(props)} />
             <View style={styles.button}>
