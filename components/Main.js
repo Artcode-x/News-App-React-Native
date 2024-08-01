@@ -97,7 +97,7 @@ export default function Main({ navigation }) {
 
 const styles = StyleSheet.create({
   header: {
-    marginBottom: 30,
+    marginBottom: 23,
   },
   item: {
     width: "100%",
