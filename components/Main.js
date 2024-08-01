@@ -86,8 +86,8 @@ export default function Main({ navigation }) {
                 uri: item.img,
               }}
             />
-            <Text style={styles.title}>{item.name}</Text>
-            <Text style={styles.anons}>{item.anons}</Text>
+            <Text style={styles.title}>{item.anons}</Text>
+            <Text style={styles.anons}>{item.full}</Text>
           </TouchableOpacity>
         )}
       />

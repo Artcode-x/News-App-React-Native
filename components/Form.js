@@ -6,6 +6,7 @@ import { Formik } from "formik"
 // import * as ImagePicker from "react-native-image-picker"
 // import { launchImageLibrary } from "react-native-image-picker"
 // import { PermissionsAndroid } from "react-native"
+// https://docs.expo.dev/versions/latest/sdk/imagepicker/
 import * as ImagePicker from "expo-image-picker"
 
 export default function Form({ addArticle, setModalWindow }) {
@@ -17,7 +18,7 @@ export default function Form({ addArticle, setModalWindow }) {
       console.log(result.assets)
 
       const { uri } = result.assets[0]
-      console.log(uri)
+
       // Обновляем состояние photos
       setPhotos([{ uri }])
 
