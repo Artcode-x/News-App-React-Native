@@ -10,6 +10,7 @@ export default function Navigate() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        {/* с пом-ю headerStyle - можем уст-ть разл-ие css св-ва . headerTitleStyle - указываем стили применимые к текстовым надписям (Главная)*/}
         <Stack.Screen
           name="Main"
           component={Main}

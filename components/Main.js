@@ -36,10 +36,8 @@ export default function Main({ navigation }) {
   const addArticle = (article) => {
     article.key = Math.random().toString()
     setNews((list) => {
-      console.log(list)
       return [article, ...list]
     })
-
     setModalWindow(false)
   }
 
@@ -76,8 +74,8 @@ export default function Main({ navigation }) {
                 uri: item.img,
               }}
             />
-            <Text style={styles.title}>{item.name}</Text>
-            <Text style={styles.anons}>{item.anons}</Text>
+            <Text style={styles.title}>{item.anons}</Text>
+            <Text style={styles.anons}>{item.full}</Text>
           </TouchableOpacity>
         )}
       />
@@ -87,7 +85,7 @@ export default function Main({ navigation }) {
 
 const styles = StyleSheet.create({
   header: {
-    marginBottom: 30,
+    marginBottom: 23,
   },
   item: {
     width: "100%",

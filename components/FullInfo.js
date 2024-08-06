@@ -11,7 +11,7 @@ export default function FullInfo({ route }) {
           uri: route.params.img,
         }}
       />
-      <Text style={gStyle.title}>{route.params.name}</Text>
+      <Text style={gStyle.title}>{route.params.anons}</Text>
       <Text style={styles.full}>{route.params.full}</Text>
     </View>
   )
