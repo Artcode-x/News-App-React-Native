@@ -3,9 +3,6 @@ import { Button, StyleSheet, Text, TextInput, View } from "react-native"
 import { gStyle } from "../styles/styles"
 import { Formik } from "formik"
 
-// import * as ImagePicker from "react-native-image-picker"
-// import { launchImageLibrary } from "react-native-image-picker"
-// import { PermissionsAndroid } from "react-native"
 // https://docs.expo.dev/versions/latest/sdk/imagepicker/
 import * as ImagePicker from "expo-image-picker"
 
@@ -14,20 +11,14 @@ export default function Form({ addArticle, setModalWindow }) {
   const selectImage = async (props) => {
     const result = await ImagePicker.launchImageLibraryAsync({ mediaType: "mixed", selectionLimit: 1 })
 
-    // Проверка наличия изображения: В данном условии мы убедились, что массив assets существует и содержит хотя бы одно изображение.
     if (result.assets && result.assets.length > 0) {
-      console.log(result.assets)
-
       const { uri } = result.assets[0]
-
-      // Обновляем состояние photos
       setPhotos([{ uri }])
 
       // Устанавливаем выбранное изображение в значения формы
       props.setFieldValue("img", uri)
       // сохраняем фото что были и добавляем новые
       // setPhotos((prevState) => [...prevState, { uri: result.assets[0]?.uri }])
-      //  setPhotos([{ uri: result.assets[0]?.uri }])
     }
   }
 
@@ -61,7 +52,6 @@ export default function Form({ addArticle, setModalWindow }) {
             <TextInput
               style={styles.input}
               value={props.values.full}
-              // этот атрибут позволяет вписывать несколько строчек текста
               multiline
               placeholder="Введите статью"
               onChangeText={props.handleChange("full")}
@@ -71,7 +61,7 @@ export default function Form({ addArticle, setModalWindow }) {
               value={props.values.img}
               placeholder="Ссылка на выбранный файл"
               onChangeText={props.handleChange("img")}
-              editable={false} // Делаем поле не редактируемым
+              editable={false}
             />
             <Button title="Выбрать файл" onPress={() => selectImage(props)} />
             <View style={styles.button}>

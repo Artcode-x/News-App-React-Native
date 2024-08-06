@@ -33,23 +33,16 @@ export default function Main({ navigation }) {
 
   const [modalWindow, setModalWindow] = useState(false)
 
-  //   параметр article - та статья которую будем добавлять
   const addArticle = (article) => {
-    console.log(article)
-    // будем добавлять к статье определенный, случайный ключ и далее добавлять эту статью к текущему массиву
     article.key = Math.random().toString()
-    // list - текущий список
     setNews((list) => {
       return [article, ...list]
     })
-    // закрываем модалку после добавления статьи
     setModalWindow(false)
   }
 
   return (
     <View style={gStyle.main}>
-      {/* visible - атрибут, который указывает, будет ли видно окно по умолчанию (false/true)*/}
-      {/* исп-м зн-ие из state для дальнейшего переключения*/}
       <Modal visible={modalWindow}>
         <View style={gStyle.main}>
           <AntDesign
@@ -60,7 +53,6 @@ export default function Main({ navigation }) {
             onPress={() => setModalWindow(false)}
           />
           <Text style={styles.title}>Форма добавления статей</Text>
-          {/* передаем нашу ф-ию в соответствующий компонент */}
           <Form addArticle={addArticle} setModalWindow={setModalWindow} />
         </View>
       </Modal>
@@ -71,14 +63,10 @@ export default function Main({ navigation }) {
         style={styles.iconAdd}
         onPress={() => setModalWindow(true)}
       />
-      {/* Применяем доп стили к заголовку стр-цы */}
       <Text style={[gStyle.title, styles.header]}>Главная страница</Text>
-      {/* <Button title="Открыть страницу" onPress={loadScene} /> */}
-      {/* в renderItem - перебираем каждый эл-т как параметр item, и создаем ф-ию для обработки всего этого */}
       <FlatList
         data={news}
         renderItem={({ item }) => (
-          // item  - передаем ту статью на которую нажали
           <TouchableOpacity style={styles.item} onPress={() => navigation.navigate("FullInfo", item)}>
             <Image
               style={styles.image}
@@ -104,7 +92,6 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   title: {
-    // тот шрифт , который был подключен ранее
     fontFamily: "mt-Variable",
     fontSize: 22,
     textAlign: "center",
